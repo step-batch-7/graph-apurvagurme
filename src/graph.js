@@ -1,8 +1,3 @@
-//Example
-// Pairs => [[from,to],[to,from]]
-// Source => from
-// To => to
-// Should return true.
 const getAdjacencyTable = function (pairs) {
 	adjacencyTable = {};
 	pairs.forEach((pair) => {
@@ -22,8 +17,8 @@ const bfs = function (pairs, source, target) {
 
 	while (queue.length > 0) {
 		const currentlyVisited = queue.shift();
-		if (adjacencyTable[currentlyVisited].includes(target)) return true;
 		if (adjacencyTable[currentlyVisited]) {
+			if (adjacencyTable[currentlyVisited].includes(target)) return true;
 			visited.push(currentlyVisited);
 			adjacencyTable[currentlyVisited].forEach((node) => {
 				if (!visited.includes(node) && !queue.includes(node)) {
